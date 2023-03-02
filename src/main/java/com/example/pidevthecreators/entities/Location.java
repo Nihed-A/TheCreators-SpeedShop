@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,5 +22,5 @@ public class Location implements Serializable {
     @Enumerated(EnumType.STRING)
     LocationType locationType;
     @ManyToOne
-    AppUser user;
+    User user;
 }

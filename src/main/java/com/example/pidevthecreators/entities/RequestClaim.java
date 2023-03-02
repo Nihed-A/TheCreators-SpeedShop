@@ -1,10 +1,8 @@
 package com.example.pidevthecreators.entities;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import net.bytebuddy.description.type.TypeDescription;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,16 +14,21 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@ToString
+@Data
 public class RequestClaim implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer idClaim;
     @Enumerated(EnumType.STRING)
     TypeClaim typeClaim;
+    @Column(unique = true)
     int ref;
     Date dateCreation;
     String Summary;
-    Status satus;
+    @Enumerated(EnumType.STRING)
+    Status status;
+ 
     String ClientRequester;
     @ManyToOne
     Order order;
@@ -33,4 +36,7 @@ public class RequestClaim implements Serializable {
     List<ResponseClaim>responseClaims;
     @ManyToOne
     AppUser user;
+
+
+
 }

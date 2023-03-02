@@ -18,7 +18,7 @@ import java.util.Date;
 public class ResponseClaim implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer idResponse;
     String comment;
     Date dateResponse;
     @ManyToOne

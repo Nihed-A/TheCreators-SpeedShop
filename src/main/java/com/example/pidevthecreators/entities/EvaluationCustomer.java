@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,12 +18,15 @@ import java.io.Serializable;
 public class EvaluationCustomer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Long id;
     String nameClient;
     @Enumerated(EnumType.STRING)
     SatisfactoryStatus satisfactoryStatus;
     String description;
     @OneToOne
     AppUser user;
+
+    @OneToMany(mappedBy = "evaluationCustomer", cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+    private List<Question> questions;
 
 }

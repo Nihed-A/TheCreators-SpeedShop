@@ -20,7 +20,7 @@ import java.util.List;
 public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    int idOrder;
     Date datCmd;
     String code;
     @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST})

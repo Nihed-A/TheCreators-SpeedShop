@@ -17,10 +17,10 @@ import java.util.Date;
 public class OrderReturn implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    int idOrdorReturn;
     Date dateofState;
     String description;
-    int quntity;
+    int quantity;
     String unity;
     String ht;
     String tva;
